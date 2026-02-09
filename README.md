@@ -1,16 +1,50 @@
-# React + Vite
+# Anniversary SP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A romantic, interactive anniversary gift builder. Create a personalized experience with names, photos, music, love letters, timeline moments, and a surprise reveal. Then share it with a single link.
 
-Currently, two official plugins are available:
+## Live
+- Live site: https://anniversary-sp.vercel.app/
+- Vercel project: https://vercel.com/navaneeth-k-vs-projects/anniversary-sp/HTGwuC9TnCJ2w4HpwHgZ44ivuZBE
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Guided creator mode for names, date, letters, timeline, photos, and music
+- Multiple unlock modes for the surprise reveal
+- Shareable link generation
+- Local draft save and JSON export/import for backup
+- Optional Cloudinary upload support for reliable media sharing
 
-## React Compiler
+## Tech Stack
+- React + Vite
+- React Router
+- Tailwind CSS
+- Framer Motion
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Usage
+1. Open the Creator page and fill in the details.
+2. Add photos and music.
+3. Click **Copy share link** and send it to your partner.
+4. Use **Generate Anniversary Experience** to preview the gift.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Sharing Tips (Important)
+- Avoid large embedded media in the link.
+- Use hosted URLs for photos and audio (Cloudinary works well).
+- Very long URLs can break in some browsers and services.
+
+### JSON Export/Import
+- JSON export is a backup for yourself, not for sharing with someone.
+- If you export, you can import the same file later to continue editing.
+
+## Screenshots
+Add your screenshots to the `screenshots` folder and update the files below:
+
+![Creator Page](screenshots/creator.png)
+![Gift Page](screenshots/gift.png)
+
+## Deployment Notes
+This project uses client-side routing. The `vercel.json` file includes a rewrite rule so links like `/anniversary?data=...` work on refresh and direct visits.

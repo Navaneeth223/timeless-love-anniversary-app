@@ -227,6 +227,18 @@ export default function Creator() {
   };
 
   const handleShareLink = async () => {
+    if (uploading) {
+      setShareMessage("Uploads are still running. Please wait a moment.");
+      setTimeout(() => setShareMessage(""), 3500);
+      return;
+    }
+    if (hasEmbeddedImages || hasEmbeddedAudio) {
+      setShareMessage(
+        "Share link is too long. Use hosted media (Cloudinary) and try again."
+      );
+      setTimeout(() => setShareMessage(""), 3500);
+      return;
+    }
     const encoded = encodeConfig(config);
     if (!encoded) return;
     const url = `${window.location.origin}/anniversary?data=${encoded}`;
@@ -238,6 +250,16 @@ export default function Creator() {
       setShareMessage("Copy failed. Try again or copy from the address bar.");
     }
     setTimeout(() => setShareMessage(""), 3500);
+  };
+
+  const updateCloudName = (value) => {
+    setCloudName(value);
+    localStorage.setItem("cloudinary-cloud", value);
+  };
+
+  const updateUploadPreset = (value) => {
+    setUploadPreset(value);
+    localStorage.setItem("cloudinary-preset", value);
   };
 
   return (
@@ -602,10 +624,35 @@ export default function Creator() {
                 <Link className="h-5 w-5 text-rose-400" />
                 <h2 className="font-display text-2xl">Sharing</h2>
               </div>
-              <div className="space-y-3 rounded-2xl bg-white/70 p-4">
+              <div className="space-y-4 rounded-2xl bg-white/70 p-4">
                 <p className="text-sm text-slate-600">
-                  Share links work for anyone. Uploaded media is hosted automatically.
+                  Share links work for anyone. For reliable sharing, use hosted media
+                  (Cloudinary).
                 </p>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div>
+                    <label className="text-xs font-medium text-slate-500">
+                      Cloudinary cloud name
+                    </label>
+                    <input
+                      className="mt-2 w-full rounded-xl border border-white/60 bg-white/80 px-3 py-2 text-sm"
+                      value={cloudName}
+                      onChange={(event) => updateCloudName(event.target.value)}
+                      placeholder="your-cloud"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs font-medium text-slate-500">
+                      Upload preset
+                    </label>
+                    <input
+                      className="mt-2 w-full rounded-xl border border-white/60 bg-white/80 px-3 py-2 text-sm"
+                      value={uploadPreset}
+                      onChange={(event) => updateUploadPreset(event.target.value)}
+                      placeholder="your-preset"
+                    />
+                  </div>
+                </div>
                 <div className="flex flex-wrap gap-3">
                   <button
                     className="rounded-full border border-white/70 px-4 py-2 text-sm"

@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@400;600&family=Quicksand:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  background: #fdf7fb;
+  color: #111827;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 60px rgba(24, 28, 48, 0.18);
+  backdrop-filter: blur(24px);
+}
+
+.glass-dark {
+  background: rgba(12, 16, 32, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(8, 10, 20, 0.45);
+  backdrop-filter: blur(20px);
+}
+
+.text-glow {
+  text-shadow: 0 0 30px rgba(255, 214, 232, 0.65);
+}
+
+.shimmer-bg {
+  background-size: 200% 200%;
+  animation: shimmer 10s ease infinite;
+}
+
+.scroll-snap-y {
+  scroll-snap-type: y mandatory;
+}
+
+.scroll-snap-y > section {
+  scroll-snap-align: start;
+}
+
+.typewriter {
+  border-right: 2px solid rgba(108, 92, 231, 0.6);
+  white-space: pre-wrap;
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.heart-pop {
+  animation: heart-pop 1.2s ease-in-out infinite;
+}
+
+@keyframes heart-pop {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}

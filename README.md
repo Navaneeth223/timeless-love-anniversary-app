@@ -1,4 +1,13 @@
-# Anniversary SP
+# timeless-love-anniversary-app
+
+![React](https://img.shields.io/badge/React-18-blue?logo=react)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.x-38bdf8?logo=tailwindcss)
+![Vite](https://img.shields.io/badge/Vite-fast-646cff?logo=vite)
+![MIT License](https://img.shields.io/badge/License-MIT-green)
+![Cloudinary](https://img.shields.io/badge/Cloudinary-Media%20Storage-3448c5?logo=cloudinary)
+![SEO Optimized](https://img.shields.io/badge/SEO-Optimized-brightgreen)
+![Responsive](https://img.shields.io/badge/Responsive-Mobile%20First-orange)
+![Status](https://img.shields.io/badge/Status-Active-success)
 
 A romantic, interactive anniversary gift builder. Create a personalized experience with names, photos, music, love letters, timeline moments, and a surprise reveal. Then share it with a single link.
 
@@ -45,6 +54,10 @@ Add your screenshots to the `screenshots` folder and update the files below:
 
 ![Creator Page](screenshots/creator.png)
 ![Gift Page](screenshots/gift.png)
+![Preview Page](screenshots/image.png)
 
 ## Deployment Notes
 This project uses client-side routing. The `vercel.json` file includes a rewrite rule so links like `/anniversary?data=...` work on refresh and direct visits.
+
+## License
+MIT. See `LICENSE`.
